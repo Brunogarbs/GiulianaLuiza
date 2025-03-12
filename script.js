@@ -13,23 +13,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener("scroll", fadeInSections);
-    fadeInSections(); // Executa a função assim que a página carrega
+    fadeInSections();
 });
 
 function agendarConsulta(event) {
-    event.preventDefault(); // Impede o envio do formulário
+    event.preventDefault();
+    let nome = document.getElementById("nome").value.trim();
+    let idade = document.getElementById("idade").value.trim();
 
-    const nome = document.getElementById("nome").value;
-    const idade = document.getElementById("idade").value;
-    
-    if (nome && idade) {
-        const mensagem = `Olá, me chamo ${nome}, tenho ${idade} anos. Gostaria de agendar uma consulta.`;
-        const numeroWhatsApp = "5511940159399"; // Substitua pelo número do WhatsApp com código do país e DDD
-        const link = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-        
-        window.open(link, "_blank"); // Abre o WhatsApp em nova guia
-    } else {
+    if (!nome || !idade) {
         alert("Preencha todos os campos!");
+        return;
     }
+    if (!/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(nome)) {
+        alert("O nome não pode conter números ou caracteres especiais!");
+        return;
+    }
+    if (isNaN(idade) || idade <= 0) {
+        alert("Idade inválida!");
+        return;
+    }
+    const numeroCriptografado = atob("NTUxMTk0MDE1OTM5OQ=="); 
+    const mensagem = `Olá, me chamo ${nome}, tenho ${idade} anos. Gostaria de agendar uma consulta.`;
+    const link = `https://wa.me/${numeroCriptografado}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(link, "_blank"); 
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const instagramUsername = "giupsico_";
+    const instagramBaseUrl = "https://www.instagram.com/";
+    document.getElementById("instagramLink").href = instagramBaseUrl + instagramUsername;
+    
+    const numeroCriptografado = atob("NTUxMTk0MDE1OTM5OQ==");
+    const whatsappBaseUrl = "https://wa.me/";
+    document.getElementById("whatsappLink").href = whatsappBaseUrl + numeroCriptografado;
+});
