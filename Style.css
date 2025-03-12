@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --cor-primaria: #43c27c;
+    --cor-secundaria: #F4F4FC;
+    --cor-texto: #333;
+    --cor-hover: #43c27c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f9ff, #e3e6ff);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("img/Back.jpeg") no-repeat center center;
+    background-size: cover;
+    filter: brightness(80%) opacity(60%); /* Ajuste a intensidade aqui */
+    z-index: -1;
+}
+
+header {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    padding: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+main {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease-in-out;
+}
+h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+#sobre h2 {
+    color: var(--cor-primaria);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+#sobre p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--cor-texto);
+    text-align: justify;
+    text-indent: 20px; /* Adiciona um recuo na primeira linha */
+    margin-top: 10px;
+}
+
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 12px;
+    border: 2px solid var(--cor-primaria);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--cor-hover);
+    outline: none;
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+}
+
+button {
+    background: var(--cor-primaria);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--cor-hover);
+    transform: scale(1.05);
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.85rem; /* Reduzi o tamanho da fonte */
+    font-weight: 400; /* Um pouco mais leve */
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem; /* Reduzi o tamanho dos links */
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease-in-out, transform 0.2s;
+}
+
+footer a:hover {
+    color: var(--cor-hover);
+    transform: scale(1.05);
+}
+
+/* Ícones menores para um visual mais equilibrado */
+footer a::before {
+    content: '📷'; /* Ícone para Instagram */
+    font-size: 1rem;
+}
+
+footer a[href*="wa.me"]::before {
+    content: '📱'; /* Ícone para WhatsApp */
+    font-size: 1rem;
+}
+
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    header {
+        font-size: 1.6rem;
+        padding: 15px;
+    }
+
+    main {
+        width: 95%;
+        padding: 20px;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    button:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    main {
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    input, button {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+}
